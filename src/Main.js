@@ -7,7 +7,7 @@ import { Scene, Router, Drawer, Actions } from 'react-native-router-flux';
 
 import Home from './page/Home';
 import Questions from './page/Questions';
-import Test from './page/Test';
+
 import Flatlist from './page/flatlist';
 import BMI from './page/BMI';
 import Results from './page/Results';
@@ -35,7 +35,7 @@ export default class Main extends Component {
           <Scene key="root" >
             <Scene   key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
-            <Scene    key="Test" component={Test} hideNavBar />
+            
             <Scene    key="Flatlist" component={Flatlist} hideNavBar />
             <Scene   initial key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>

@@ -21,11 +21,11 @@ class DisplayQuestions extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: [],
+      response: this.props.response,
     };
+    console.log(this.props.response);
     //this.getData = this.getData.bind(this);
     this.displayQuestions = this.displayQuestions.bind(this);
-    this.handleOnPress = this.handleOnPress.bind(this);
   }
   _keyExtractor = (item, index) => index;
 
@@ -44,7 +44,7 @@ class DisplayQuestions extends Component {
             <RadioForm
               radio_props={Option}
               formHorizontal={true}
-              onPress={(key,index, event) => this.handleOnPress(key,index, event)}
+              onPress={(event) => this.props.handleOnPress(event, index)}
               labelHorizontal={false}
             />
             </View>}
@@ -57,9 +57,7 @@ class DisplayQuestions extends Component {
     }
 
   }
-  handleOnPress(key,index, event) {
-    console.log(key,index, event);
-  }
+
   render() {
     return (this.displayQuestions(this.props.questionData) || null);
   }

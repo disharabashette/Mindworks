@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet, ProgressBarAndroid,
-  Text,Spinner,
+  Text, Spinner,
   View, ScrollView,
   Button, Image
   , TouchableOpacity
@@ -33,11 +33,15 @@ export default class Questions extends Component {
 
     this.state = {
       response: {},
-      lastQuestion: 0,
+      // lastQuestion: 0,
       data: [],
+      selectedOptionsResponse: [],
+
     };
     this.getData = this.getData.bind(this);
     this.buttonDisplay = this.buttonDisplay.bind(this);
+    this.handleOnPress = this.handleOnPress.bind(this);
+    this.showScore = this.showScore.bind(this);
     // this.displayQuestions = this.displayQuestions.bind(this);
   }
   /* componentDidMount() {
@@ -91,7 +95,7 @@ export default class Questions extends Component {
     //this.setState({response:content});
     console.log(content);
     content.then(data => {
-      this.setState({ response: data, lastQuestion:(data.data.length>10 ? 10 : data.data.length) });
+      this.setState({ response: data });
       console.log(this.state.response);
     });
     // console.log(this.state.response);
@@ -206,30 +210,81 @@ export default class Questions extends Component {
   //   // });
   //   //}
   // }
-  handleNext(){
-    ((this.state.lastQuestion + 10 <= this.state.response.data.length ) ? this.setState({lastQuestion: this.state.lastQuestion+10}) : this.setState({lastQuestion: this.state.response.data.length}))
-  }
+  async showScore(){
+    // data = {
+    //   response: this.state.selectedOptionsResponse,
+    // }
+    // let data = {
+    //   response: [1, 2, 2, 3, 3, 3, 2, 1, 1, 2, 2, 3, 3, 3, 2, 1, 0, 0, 1, 1, 2, 2, 4, 4, 3, 3, 1, 1, 2],
+    // }
+    console.log(this.state.selectedOptionsResponse);
+    let username = "kmohankumar@gmail.com";
+    let pass = "test123";
+    let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+    let id = 1;
+    var stringForKey = username + localts + "keY";
 
-  buttonDisplay(){
-    if(this.state.response.data !== undefined) {
-     if(this.state.lastQuestion !== this.state.response.data.length){
+    let key = base64.encode(md5.str_md5(stringForKey));
+
+    var key3 = encodeURIComponent(key);
+    console.log("key3", key3);
+
+    let body = {
+      tag: "assessmentResp",
+      username: username,
+      localts: localts,
+      key: key3,
+      id: id,
+      // data: data,
+    };
+
+    let formData = new FormData();
+    formData.append("tag", "assessmentResp");
+    formData.append("username", username);
+    formData.append("localts", localts);
+    formData.append("key", key);
+    formData.append("id", id);
+    // formData.append("data", data);
+
+
+    console.log("body", body);
+    console.log("form", formData);
+
+    let response1 = await fetch("http://www.awakenm.com/mwapi/corp/api360.php", {
+      method: "POST",
+      body: formData,
+      response : this.state.selectedOptionsResponse,
+    });
+
+    const content = response1.json();
+    //this.setState({response:content});
+    // console.log(content);
+    content.then(apiresponse => {
+      // this.setState({ response1: data, lastQuestion: (data.data.length > 10 ? 10 : data.data.length) });
+      console.log(apiresponse);
+    });
+  };
+
+  buttonDisplay() {
+    if (this.state.response.data !== undefined) {
+      //  if(this.state.lastQuestion !== this.state.response.data.length){
+      //   return (<Button
+      //   onPress={() => this.handleNext()} 
+      //   title="  Next  "
+      //   color="#2196f3"
+      // />);
+      // } else {
       return (<Button
-      onPress={() => this.handleNext()} 
-      title="  Next  "
-      color="#2196f3"
-    />);
-    } else {
-      return (<Button
-        onPress={() => Actions.bmi()}
+        onPress={() => this.showScore()}
         title="  Finish  "
         color="green"
       />);
+      // }
     }
-  }
-  return (
-    <Text>loading...!!</Text>
-    //<Spinner visible={this.state.loading} />
-  )
+    return (
+      <Text>loading...!!</Text>
+      //<Spinner visible={this.state.loading} />
+    )
     // if(this.state.lastQuestion !== this.state.response.data.length ){
     //   return (<Button
     //   onPress={() => this.handleNext()}
@@ -244,114 +299,123 @@ export default class Questions extends Component {
     //     color="green"
     //   />
     // }
-      
-// {/* <Button
-//         onPress={() => Actions.bmi()}
-//         title="  Finish  "
-//         color="green"
-//       /> */}
-      // )
-    
+
+    // {/* <Button
+    //         onPress={() => Actions.bmi()}
+    //         title="  Finish  "
+    //         color="green"
+    //       /> */}
+    // )
+
   }
-    render() {
+  handleOnPress(event, index) {
+    // console.log(index, event);
+    // this.setState()
+    let a = this.state.selectedOptionsResponse.slice(); //creates the clone of the state
+    a[index] = event;
+    // console.log(a)
+    this.setState({ selectedOptionsResponse: a });
+    // console.log(this.state.selectedOptionsResponse);
+  }
+  render() {
 
-      return (
+    return (
 
-        <View style={{ flex: 1 }}>
-          <Header backgroundColor='#45CE30'
+      <View style={{ flex: 1 }}>
+        <Header backgroundColor='#45CE30'
 
-            centerComponent={{ text: 'Awaken Mindfulness', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+          centerComponent={{ text: 'Awaken Mindfulness', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+        />
+
+        <View style={styles.container1}>
+
+          <Title style={styles.welcome}>Mental Health Assessment</Title>
+          <Progress.Bar progress={.33} width={300}
           />
-
-          <View style={styles.container1}>
-
-            <Title style={styles.welcome}>Mental Health Assessment</Title>
-            <Progress.Bar progress={.33} width={300}
-            />
-            <Text style={styles.label1}>
-              Over the last two weeks, have you noticed the following?
+          <Text style={styles.label1}>
+            Over the last two weeks, have you noticed the following?
         </Text>
+          <Text>
+
+
+          </Text>
+
+          <ScrollView>
+
             <Text>
 
-
             </Text>
+            <DisplayQuestions questionData={this.state.response} response={this.state.selectedOptionsResponse} handleOnPress={this.handleOnPress} />
 
-            <ScrollView>
-              
-              <Text>
-
-              </Text>
-              <DisplayQuestions questionData ={this.state.response} lastQuestion = {this.state.lastQuestion} handleNext = {this.handleNext} />
-              
-              {this.buttonDisplay()}
-              {/* <Button
+            {this.buttonDisplay()}
+            {/* <Button
                 onPress={() => this.handleNext()}
                 title="  Finished  "
                 color="green"
               /> */}
-              
-            </ScrollView>
+
+          </ScrollView>
 
 
 
-
-          </View>
 
         </View>
-      );
-    }
+
+      </View>
+    );
   }
+}
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: '#fafad2',
-    },
-    container1: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    bar: {
-      flex: 5,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#fafad2',
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#fafad2',
+  },
+  container1: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bar: {
+    flex: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fafad2',
 
 
-    },
-    content: {
-      flex: 5,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#fafad2',
-    },
-    label1: {
+  },
+  content: {
+    flex: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fafad2',
+  },
+  label1: {
 
-      textAlign: 'center',
-      fontSize: 14,
-      fontFamily: 'System',
-      color: 'black',
-      backgroundColor: 'transparent',
-    },
-    label: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: 'System',
+    color: 'black',
+    backgroundColor: 'transparent',
+  },
+  label: {
 
-      textAlign: 'center',
-      fontSize: 10,
-      fontFamily: 'System',
-      color: '#A6A4A4',
-      backgroundColor: 'transparent',
-    },
+    textAlign: 'center',
+    fontSize: 10,
+    fontFamily: 'System',
+    color: '#A6A4A4',
+    backgroundColor: 'transparent',
+  },
 
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-      color: 'black',
-      backgroundColor: 'transparent'
-    }
-  });
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    color: 'black',
+    backgroundColor: 'transparent'
+  }
+});
 
 
 
