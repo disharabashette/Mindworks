@@ -7,8 +7,8 @@ import { Scene, Router, Drawer, Actions } from 'react-native-router-flux';
 
 import Home from './page/Home';
 import Questions from './page/Questions';
-
-import Flatlist from './page/flatlist';
+import ModalTester from './page/ModalTester';
+//import Flatlist from './page/flatlist';
 import BMI from './page/BMI';
 import Results from './page/Results';
 import Modules from './page/Modules';
@@ -23,6 +23,7 @@ import DisplayQuestions from './page/DisplayQuestions';
 //import SideMenuDrawer from './page/Meditation/SideMenuDrawer';
 
 
+
 export default class Main extends Component {
   componentWillMount = () => {
     BackHandler.addEventListener('hardwareBackPress', () => Actions.pop());
@@ -33,14 +34,14 @@ export default class Main extends Component {
       <Root>
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
-            <Scene   key="home" component={Home} hideNavBar />
+            <Scene initial  key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
-            <Scene    key="Flatlist" component={Flatlist} hideNavBar />
-            <Scene   initial key="questions" component={Questions} hideNavBar />
+            <Scene    key="ModalTester" component={ModalTester} hideNavBar />
+            <Scene    key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
-            <Scene key="modules" component={Modules} hideNavBar />
+            <Scene  key="modules" component={Modules} hideNavBar />
             <Scene key="start" component={Start} hideNavBar />
             <Scene key="art" component={Art} hideNavBar />
             <Scene key="begin" component={Art_Begin} hideNavBar />

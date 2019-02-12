@@ -206,7 +206,7 @@ class BMI extends Component {
           {this.state.result}
         </Text>
         <Button
-          onPress={() => Actions.results()}
+          onPress={() => Actions.modules()}
           title={<Text style={styles.subtitle}> Next </Text>}
           buttonStyle={{
             backgroundColor: "white",

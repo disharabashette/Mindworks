@@ -28,27 +28,49 @@ class DisplayQuestions extends Component {
     this.displayQuestions = this.displayQuestions.bind(this);
   }
   _keyExtractor = (item, index) => index;
-
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "86%",
+          backgroundColor: "#CED0CE",
+          marginLeft: "14%"
+        }}
+      />
+    );
+  };
   displayQuestions(questionData) {
     if (questionData.data !== undefined) {
       console.log(questionData.data);
       console.log('this is display questions');
       // questionsData.map(question =>console.log(question.Qn));
-      return (
+      return (<View style={styles.container}>
+
+     
         <FlatList
           data={questionData.data}
           keyExtractor={this._keyExtractor}
+          ItemSeparatorComponent={this.renderSeparator}
           renderItem={({ item, index }) => 
           <View>
+            <Text> </Text>
           <Text>{(index + 1) + '. ' + item.Qn}</Text>
+          <Text> </Text>
             <RadioForm
+            
               radio_props={Option}
               formHorizontal={true}
               onPress={(event) => this.props.handleOnPress(event, index)}
               labelHorizontal={false}
             />
+<Text>
+
+</Text>
+            
             </View>}
         />
+         </View>
       )
 
 
@@ -70,6 +92,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fafad2',
+    marginLeft:10,
+    marginRight:10,
   },
   container1: {
     flex: 1,

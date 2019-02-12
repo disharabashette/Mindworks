@@ -15,7 +15,7 @@ export default class Modules extends Component {
             backgroundColor="#aaa"
             buttonStyle={{
               backgroundColor: "#25D366",
-              width: 160,
+              width: 150,
               height: 170,
               borderColor: "transparent",
               borderWidth: 0,
@@ -33,7 +33,7 @@ export default class Modules extends Component {
           <Button
             buttonStyle={{
               backgroundColor: "#25D366",
-              width: 160,
+              width: 150,
               height: 170,
               borderColor: "transparent",
               borderWidth: 0,
@@ -57,7 +57,7 @@ export default class Modules extends Component {
           <Button
             buttonStyle={{
               backgroundColor: "#25D366",
-              width: 160,
+              width: 150,
               height: 170,
               borderColor: "transparent",
               borderWidth: 0,
@@ -77,7 +77,7 @@ export default class Modules extends Component {
           <Button
             buttonStyle={{
               backgroundColor: "#25D366",
-              width: 160,
+              width: 150,
               height: 170,
               borderColor: "transparent",
               borderWidth: 0,

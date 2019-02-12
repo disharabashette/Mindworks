@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
   StyleSheet, ProgressBarAndroid,
-  Text, Spinner,
-  View, ScrollView,
+  Text, Spinner,Alert,
+  View, ScrollView,ActivityIndicator,
   Button, Image
   , TouchableOpacity
 } from 'react-native';
@@ -253,16 +253,19 @@ export default class Questions extends Component {
     let response1 = await fetch("http://www.awakenm.com/mwapi/corp/api360.php", {
       method: "POST",
       body: formData,
+     // response: [1, 2, 2, 3, 3, 3, 2, 1, 1, 2, 2, 3, 3, 3, 2, 1, 0, 0, 1, 1, 2, 2, 4, 4, 3, 3, 1, 1, 2],
       response : this.state.selectedOptionsResponse,
     });
 
     const content = response1.json();
     //this.setState({response:content});
     // console.log(content);
-    content.then(apiresponse => {
+    return content.then(apiresponse => {
       // this.setState({ response1: data, lastQuestion: (data.data.length > 10 ? 10 : data.data.length) });
       console.log(apiresponse);
+      return apiresponse;
     });
+    
   };
 
   buttonDisplay() {
@@ -275,14 +278,30 @@ export default class Questions extends Component {
       // />);
       // } else {
       return (<Button
-        onPress={() => this.showScore()}
+        
+        onPress={() => {
+          this.showScore().then(result => {
+            let score = result.score;
+            Alert.alert(
+              'Your Score: ',
+              ''+score,
+              [
+                //{text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+                {text: 'OK', onPress: () => Actions.bmi()},
+              ],
+              { cancelable: false }
+            )
+          })
+         }}
         title="  Finish  "
         color="green"
       />);
+
+
       // }
     }
     return (
-      <Text>loading...!!</Text>
+      <ActivityIndicator size="small" color="#00ff00" />
       //<Spinner visible={this.state.loading} />
     )
     // if(this.state.lastQuestion !== this.state.response.data.length ){
@@ -330,8 +349,8 @@ export default class Questions extends Component {
         <View style={styles.container1}>
 
           <Title style={styles.welcome}>Mental Health Assessment</Title>
-          <Progress.Bar progress={.33} width={300}
-          />
+          {/* <Progress.Bar progress={.33} width={300}
+          /> */}
           <Text style={styles.label1}>
             Over the last two weeks, have you noticed the following?
         </Text>
@@ -422,3 +441,8 @@ const styles = StyleSheet.create({
 //{()=>{this.state.response.then(result => result.data.map(question =>{<Text style={styles.label}>{question.qn}</Text>} ))}}
 // {this.displayQuestions()}
 // questionData ={this.state.response} lastQuestion = {this.state.lastQuestion} handleNext = {this.handleNext}
+// return (<Button
+//   onPress={() => this.showScore()}
+//   title="  Finish  "
+//   color="green"
+// />);
