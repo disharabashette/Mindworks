@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
+import { StyleSheet, Text, Linking,View, Image, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux';
 export default class Modules extends Component {
@@ -10,7 +10,7 @@ export default class Modules extends Component {
       <View style={styles.container}>
         <View style={{ alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap' }} >
           <Button
-            onPress={() => Actions.start()}
+            onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
             title="Meditation"
             backgroundColor="#aaa"
             buttonStyle={{

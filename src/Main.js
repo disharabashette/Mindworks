@@ -7,14 +7,14 @@ import { Scene, Router, Drawer, Actions } from 'react-native-router-flux';
 
 import Home from './page/Home';
 import Questions from './page/Questions';
-import ModalTester from './page/ModalTester';
-//import Flatlist from './page/flatlist';
+
 import BMI from './page/BMI';
 import Results from './page/Results';
 import Modules from './page/Modules';
 import Start from './page/Meditation/Start';
 import Effect from './page/Meditation/Effect';
-//import Login from './page/Meditation/Login';
+import Login from './page/Meditation/Login';
+import Register from './page/Meditation/Register';
 import Art from './page/Meditation/Art';
 import Express from './page/Meditation/Express';
 import Progress from './page/Meditation/Progress';
@@ -34,11 +34,11 @@ export default class Main extends Component {
       <Root>
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
-            <Scene initial  key="home" component={Home} hideNavBar />
+            <Scene   key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
-            <Scene    key="ModalTester" component={ModalTester} hideNavBar />
-            <Scene    key="questions" component={Questions} hideNavBar />
+           
+            <Scene  initial  key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
             <Scene  key="modules" component={Modules} hideNavBar />
@@ -47,8 +47,8 @@ export default class Main extends Component {
             <Scene key="begin" component={Art_Begin} hideNavBar />
             <Scene key="express" component={Express} hideNavBar />
             <Scene key="progress" component={Progress} hideNavBar />
-
-
+            <Scene  key="login" component={Login} hideNavBar />
+            <Scene  key="register" component={Register} hideNavBar />
 
             <Scene key="effect" component={Effect} hideNavBar />
 
