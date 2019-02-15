@@ -7,16 +7,18 @@ import { Actions } from 'react-native-router-flux';
 export default class Modules extends Component {
   render() {
     return (
+     
       <View style={styles.container}>
         <View style={{ alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap' }} >
           <Button
-            onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
+            //onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
+            onPress={() => Actions.start()}
             title="Meditation"
             backgroundColor="#aaa"
             buttonStyle={{
               backgroundColor: "#25D366",
               width: 150,
-              height: 170,
+              height: 150,
               borderColor: "transparent",
               borderWidth: 0,
               borderRadius: 5,
@@ -34,7 +36,7 @@ export default class Modules extends Component {
             buttonStyle={{
               backgroundColor: "#25D366",
               width: 150,
-              height: 170,
+              height: 150,
               borderColor: "transparent",
               borderWidth: 0,
               borderRadius: 5,
@@ -58,7 +60,7 @@ export default class Modules extends Component {
             buttonStyle={{
               backgroundColor: "#25D366",
               width: 150,
-              height: 170,
+              height: 150,
               borderColor: "transparent",
               borderWidth: 0,
               borderRadius: 5,
@@ -78,7 +80,7 @@ export default class Modules extends Component {
             buttonStyle={{
               backgroundColor: "#25D366",
               width: 150,
-              height: 170,
+              height: 150,
               borderColor: "transparent",
               borderWidth: 0,
               borderRadius: 5,
@@ -115,5 +117,10 @@ const styles = StyleSheet.create({
   // justifyContent:'space-evenly',
   // }
 
+  img: {
 
+    justifyContent: 'center', alignItems: 'center',
+    borderRadius: 30,
+    width: 66, height: 66,
+},
 });

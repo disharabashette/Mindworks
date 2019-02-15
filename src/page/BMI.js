@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import CardStack, { Card } from 'react-native-card-stack-swiper';
 
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput,Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import { Button } from 'react-native-elements';
@@ -102,11 +103,19 @@ class BMI extends Component {
       <View
         style={styles.rootContainer}
         onStartShouldSetResponder={this.containerTouched.bind(this)}
+        
       >
+      
+      
         <Text style={styles.title}>
           BmiCalculator
         </Text>
-
+        <Image
+                            style={styles.img}
+                            source={{ uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1550226778/bmi.png' }}
+                        />
+        <Card style={[styles.card, styles.card]}>
+         
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
             Age:
@@ -117,28 +126,8 @@ class BMI extends Component {
             placeholder="Year"
 
           />
-          {/* <View >
-          
-          
-          <Fumi
-            label={'Age'}
-            labelStyle={{ color: '#a3a3a3' }}
-            inputStyle={{ color: '#f95a25' }}
-            iconClass={FontAwesomeIcon}
-            iconName={'university'}
-            iconColor={'#f95a25'}
-            iconSize={15}
-          />
-          <Fumi
-            style={styles.input}
-            label={'Degree'}
-            iconClass={FontAwesomeIcon}
-            iconName={'graduation-cap'}
-            iconColor={'#77116a'}
-          />
-        </View> */}
+       
         </View>
-
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
             Sex:
@@ -153,7 +142,6 @@ class BMI extends Component {
           
           
         />
-
 
 
         <View style={styles.inputContainer}>
@@ -188,7 +176,7 @@ class BMI extends Component {
 
           title={<Text style={styles.subtitle}> Submit </Text>}
           buttonStyle={{
-            backgroundColor: "white",
+            backgroundColor: "green",
             width: 100,
             height: 40,
             borderColor: "transparent",
@@ -205,12 +193,16 @@ class BMI extends Component {
         <Text style={styles.textResult}>
           {this.state.result}
         </Text>
-        <Button
+        
+         </Card>
+       
+
+      <Button
           onPress={() => Actions.modules()}
           title={<Text style={styles.subtitle}> Next </Text>}
           buttonStyle={{
-            backgroundColor: "white",
-            width: 100,
+            backgroundColor: "green",
+            width: 200,
             height: 40,
             borderColor: "transparent",
             borderWidth: 2,
@@ -220,6 +212,9 @@ class BMI extends Component {
           backgroundColor="#aaa"
 
         />
+
+
+
       </View>
     );
   }
@@ -266,9 +261,27 @@ var styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     margin: 10,
-    color: 'black',
+    color: '#F3F2F2',
   },
+  img: {
 
+    justifyContent: 'center', alignItems: 'center',
+    borderRadius: 30,
+    width: 66, height: 66,
+},
+  card: {
+    width: 300,
+    height: 400,
+    backgroundColor: 'white',
+    borderRadius: 30,
+    shadowColor: 'rgba(0,0,0,0.5)',
+    shadowOffset: {
+        width: 0,
+        height: 1
+    },
+    shadowOpacity: 0.5,
+    justifyContent: 'center', alignItems: 'center',
+},
 });
 
 

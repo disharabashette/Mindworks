@@ -35,7 +35,8 @@ class DisplayQuestions extends Component {
           height: 1,
           width: "86%",
           backgroundColor: "#CED0CE",
-          marginLeft: "14%"
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       />
     );
@@ -47,30 +48,42 @@ class DisplayQuestions extends Component {
       // questionsData.map(question =>console.log(question.Qn));
       return (<View style={styles.container}>
 
-     
+
         <FlatList
           data={questionData.data}
           keyExtractor={this._keyExtractor}
           ItemSeparatorComponent={this.renderSeparator}
-          renderItem={({ item, index }) => 
-          <View>
-            <Text> </Text>
-          <Text>{(index + 1) + '. ' + item.Qn}</Text>
-          <Text> </Text>
-            <RadioForm
-            
-              radio_props={Option}
-              formHorizontal={true}
-              onPress={(event) => this.props.handleOnPress(event, index)}
-              labelHorizontal={false}
-            />
-<Text>
+          renderItem={({ item, index }) =>
+            <View>
+              <Text> </Text>
 
-</Text>
-            
+              <Text style={styles.label}>
+                <Text style={{ fontWeight: 'bold' }} > {(index + 1) + '.   '}</Text>
+
+                <Text>
+                  {item.Qn}
+                </Text>
+              </Text>
+
+
+
+
+              {/* <Text style={styles.label}>{(index + 1) + '.   ' + item.Qn}</Text> */}
+              <Text> </Text>
+              <RadioForm
+
+                radio_props={Option}
+                formHorizontal={true}
+                onPress={(event) => this.props.handleOnPress(event, index)}
+                labelHorizontal={false}
+              />
+              <Text>
+
+              </Text>
+
             </View>}
         />
-         </View>
+      </View>
       )
 
 
@@ -92,8 +105,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fafad2',
-    marginLeft:10,
-    marginRight:10,
+    marginLeft: 10,
+    marginRight: 10,
   },
   container1: {
     flex: 1,
@@ -117,17 +130,18 @@ const styles = StyleSheet.create({
   label1: {
 
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: 'System',
+
     color: 'black',
     backgroundColor: 'transparent',
   },
   label: {
 
     textAlign: 'center',
-    fontSize: 10,
+    fontSize: 14,
     fontFamily: 'System',
-    color: '#A6A4A4',
+    color: '#0B0A0A',
     backgroundColor: 'transparent',
   },
 

@@ -359,7 +359,7 @@ export default class Questions extends Component {
 
           </Text>
 
-          <ScrollView>
+          <ScrollView style={styles.scroll}  >
 
             <Text>
 
@@ -433,6 +433,14 @@ const styles = StyleSheet.create({
     margin: 10,
     color: 'black',
     backgroundColor: 'transparent'
+  },
+  scroll: {
+    //alignItems: 'center',
+   // justifyContent: 'center',
+    backgroundColor: '#fafad2',
+    marginLeft: 10,
+    marginRight: 10,
+    color: '#0B0A0A',
   }
 });
 

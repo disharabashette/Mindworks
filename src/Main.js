@@ -20,6 +20,7 @@ import Express from './page/Meditation/Express';
 import Progress from './page/Meditation/Progress';
 import Art_Begin from './page/Meditation/Art_Begin';
 import DisplayQuestions from './page/DisplayQuestions';
+
 //import SideMenuDrawer from './page/Meditation/SideMenuDrawer';
 
 
@@ -34,11 +35,12 @@ export default class Main extends Component {
       <Root>
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
-            <Scene   key="home" component={Home} hideNavBar />
+       
+            <Scene initial  key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
            
-            <Scene  initial  key="questions" component={Questions} hideNavBar />
+            <Scene    key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
             <Scene  key="modules" component={Modules} hideNavBar />
