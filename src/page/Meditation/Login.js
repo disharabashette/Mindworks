@@ -1,16 +1,18 @@
 
 import React, { Component } from 'react';
-import { Icon,Container, View, Left, Right,  Item, Input } from 'native-base';
+import { Container, View, Left, Right,  Item, Input } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 //import {} from 'react-native-vector-icons';
-import {Button,} from 'react-native-elements';
+import {Button,Icon} from 'react-native-elements';
 //import { ScrollView} from 'react-native';
 import { StyleSheet, Image  } from 'react-native';
 import CardStack, { Card } from 'react-native-card-stack-swiper';
-import CountDown from 'react-native-countdown-component';
-import Colors from './Colors';
+
 import Text from './Text';
-import Navbar from './Navbar';
+import moment from 'moment';
+import md5 from "react-native-md5";
+import base64 from "base-64";
+
 
 export default class Login extends Component {
     constructor(props) {
@@ -21,6 +23,49 @@ export default class Login extends Component {
             hasError: false,
             errorText: ''
         };
+    }
+
+    componentDidMount()
+    {
+      this.getData();
+    }
+  
+    async getData() {
+      let username = "kmohankumar@gmail.com";
+      let pass = "test123";
+      let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+      var stringForKey = user + pw + "keY";
+      let key = base64.encode(md5.str_md5(stringForKey));
+      
+  
+      var key3 = encodeURIComponent(key);
+      console.log("key3", key3);
+  
+      let body = {
+        tag: "login",
+        user: user,
+        pw:pw,
+        key: key3,
+       
+      };
+  
+      let formData = new FormData();
+      formData.append("tag", "login");
+      formData.append("user", user);
+      formData.append("pw", pw);
+      formData.append("key", key);
+     
+  
+      console.log("body", body);
+      console.log("form", formData);
+  
+      let response = await fetch("http://www.awakenm.com/mwapi/corp/login.php", {
+        method: "POST",
+        body: formData
+      });
+  
+      const content =  response.json();
+      console.log("response", content);
     }
 
 
@@ -44,7 +89,7 @@ export default class Login extends Component {
                         <Text style={{ color: 'black' }}>  </Text>
                         <Text style={{ color: '#7CEC9F', fontSize: 20 }}> Login </Text>
                         <Item>
-                            <Icon Actions name='mail' type='entypo' style={{ color: "#687373" }} />
+                            <Icon active name='email' type= 'material communityIcons' style={{color: '#687373'}} />
                             <Input placeholder='Email' onChangeText={(text) => this.setState({ email: text })} placeholderTextColor="#687373" />
                         </Item>
 
@@ -78,6 +123,7 @@ export default class Login extends Component {
           Username: this.state.username
           Password: this.state.password
         */
+      
         this.setState({ hasError: true, errorText: 'Invalid email or password !' });
     }
 
