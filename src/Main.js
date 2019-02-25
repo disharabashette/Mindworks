@@ -15,6 +15,7 @@ import Start from './page/Meditation/Start';
 import Effect from './page/Meditation/Effect';
 import Login from './page/Meditation/Login';
 import Register from './page/Meditation/Register';
+import SideMenu from './page/Meditation/SideMenu';
 import Art from './page/Meditation/Art';
 import Express from './page/Meditation/Express';
 import Progress from './page/Meditation/Progress';
@@ -49,8 +50,9 @@ export default class Main extends Component {
             <Scene key="begin" component={Art_Begin} hideNavBar />
             <Scene key="express" component={Express} hideNavBar />
             <Scene key="progress" component={Progress} hideNavBar />
-            <Scene initial key="login" component={Login} hideNavBar />
+            <Scene  key="login" component={Login} hideNavBar />
             <Scene   key="register" component={Register} hideNavBar />
+            <Scene initial key="sideMenu" component={SideMenu} hideNavBar />
 
             <Scene key="effect" component={Effect} hideNavBar />
 

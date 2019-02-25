@@ -15,8 +15,67 @@ export default class Register extends Component {
         password: '',
         rePassword: '',
         hasError: false,
-        errorText: ''
+        errorText: '',
+        address:'',
+        mobile:'',
+
+
       };
+  }
+  componentDidMount()
+  {
+    this.getData();
+  }
+
+  async getData() {
+    
+    let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+    var stringForKey = name + localts + "keY";
+    let key = base64.encode(md5.str_md5(stringForKey));
+    
+
+    var key3 = encodeURIComponent(key);
+    console.log("key3", key3);
+
+    let body = {
+      tag: "register",
+      name: name,
+      email:email,
+      pw:pw,
+      mobile:mobile,
+      address:address,
+      groupid:"2",
+      package :"web-breatheasy",
+      amount:"0",
+      coupon :"",
+      source :"web-breatheasy",
+      key: key3,
+      
+    };
+
+    let formData = new FormData();
+    formData.append("tag", "register");
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("pw", pw);
+    formData.append("mobile", mobile);
+    formData.append("address", address);
+    formData.append("package","web-breatheasy");
+    formData.append("amount", "0");
+    formData.append("coupon", "");
+    formData.append("source", "web-breatheasy");
+    formData.append("key", key);
+
+    console.log("body", body);
+    console.log("form", formData);
+
+    let response = await fetch("http://www.awakenm.com/mwapi/corp/actio.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const content =  response.json();
+    console.log("response", content);
   }
 
 
@@ -37,25 +96,31 @@ export default class Register extends Component {
               <Text style={{fontSize: 24, fontWeight: 'bold', textAlign: 'left', width: '100%'}}>Create your account, </Text>
               <Text style={{fontSize: 18, textAlign: 'left', width: '100%', color: '#687373'}}>Signup to continue </Text>
             </View>
-            <Item>
-                <Icon active name='email' type= 'material communityIcons' style={{color: '#687373'}} />
-                <Input placeholder='Email' onChangeText={(text) => this.setState({email: text})} keyboardType="email-address" placeholderTextColor="#687373" />
-            </Item>
+            
             <Item>
                 <Icon active name='person' type='materialIcons'  style={{color: '#687373'}} />
                 <Input placeholder='Name' onChangeText={(text) => this.setState({name: text})} placeholderTextColor="#687373" />
             </Item>
             <Item>
-                <Icon active name='person-pin-circle' type='materialIcons'  style={{color: '#687373'}} />
-                <Input placeholder='Username' onChangeText={(text) => this.setState({username: text})} placeholderTextColor="#687373" />
+                <Icon active name='email' type= 'material communityIcons' style={{color: '#687373'}} />
+                <Input placeholder='Email' onChangeText={(text) => this.setState({email: text})} keyboardType="email-address" placeholderTextColor="#687373" />
             </Item>
+            
             <Item>
                 <Icon active name='lock' type='evilIcons' style={{color: '#687373'}} />
                 <Input placeholder='Password' onChangeText={(text) => this.setState({password: text})} secureTextEntry={true} placeholderTextColor="#687373" />
             </Item>
+          
             <Item>
-                <Icon active name='lock' type='evilIcons' style={{color: '#687373'}} />
-                <Input placeholder='Repeat your password' onChangeText={(text) => this.setState({rePassword: text})} secureTextEntry={true} placeholderTextColor="#687373" />
+                <Icon active name='home' type='evilIcons' style={{color: '#687373'}} />
+                <Input placeholder='Address' onChangeText={(text) => this.setState({address: text})} placeholderTextColor="#687373" />
+            </Item>
+            <Item>
+                <Icon active name='phone' type='evilIcons' style={{color: '#687373'}} />
+                <Input placeholder='mobile' onChangeText={(text) => this.setState({address: text})} placeholderTextColor="#687373" />
+            </Item>
+            <Item>
+                <Text style={{color: "#c0392b", textAlign: 'center', marginTop: 10}}>package</Text>
             </Item>
             {this.state.hasError?<Text style={{color: "#c0392b", textAlign: 'center', marginTop: 10}}>{this.state.errorText}</Text>:null}
             <View style={{alignItems: 'center'}}>
@@ -86,10 +151,7 @@ export default class Register extends Component {
       this.setState({hasError: true, errorText: 'Passwords must contains at least 6 characters !'});
       return;
     }
-    if(this.state.password !== this.state.rePassword) {
-      this.setState({hasError: true, errorText: 'Passwords does not match !'});
-      return;
-    }
+    
     this.setState({hasError: false});
     Actions.home();
   }

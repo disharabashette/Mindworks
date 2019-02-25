@@ -34,10 +34,10 @@ export class Start extends Component {
     return (
 
       <View style={styles.container1}>
-      
+
         <Header backgroundColor='#45CE30'
           leftComponent={leftButtonConfig}
-        
+
 
         />
 
@@ -58,12 +58,35 @@ export class Start extends Component {
           <Text style={styles.text1}>
             Your personal journey towards a clean and happy mind
         </Text>
+          <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }} >
+            <Button title={<Text style={styles.textStyle}> Login </Text>}
+              onPress={() => Actions.login()}
+              buttonStyle={{
+                backgroundColor: '#F27522',
+                width: 300,
+                height: 30,
+                borderColor: "transparent",
+                borderWidth: 2,
+              }}
+            />
+            <Text>
 
+            </Text>
+            <Button title={<Text style={styles.textStyle}> Register </Text>}
+            onPress ={() => Actions.register()}
+              buttonStyle={{
+                backgroundColor: '#F27522',
+                width: 300,
+                height: 30,
+                borderColor: "transparent",
+                borderWidth: 2,
+              }} />
+          </View>
           <View style={styles.bottomView} >
             <Button
               title={<Text style={styles.textStyle}> The Art </Text>}
               onPress={() => Actions.art()}
-              
+
               buttonStyle={{
                 backgroundColor: "white",
                 width: 100,
@@ -75,10 +98,10 @@ export class Start extends Component {
               }}
               backgroundColor="#aaa"
             ><Image
-            style={styles.img}
-            source={{ uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg' }}
-          />
-            
+                style={styles.img}
+                source={{ uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg' }}
+              />
+
             </Button>
             <Button
               title={<Text style={styles.textStyle}> Express </Text>}
@@ -149,7 +172,7 @@ const styles = StyleSheet.create({
 
   textStyle: {
 
-    fontSize: 10,
+    fontSize: 12,
     textAlign: 'center',
     margin: 10,
     color: 'black',

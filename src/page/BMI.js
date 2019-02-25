@@ -208,13 +208,24 @@ class BMI extends Component {
             borderWidth: 2,
             borderRadius: 30,
             borderColor: '#92bbff',
+            //paddingBottom :50,
           }}
           backgroundColor="#aaa"
-
+          
         />
+<Text>
 
 
+</Text>
 
+<Text>
+
+  
+</Text>
+<Text>
+
+  
+</Text>
       </View>
     );
   }

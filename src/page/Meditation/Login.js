@@ -18,22 +18,23 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
+            
             hasError: false,
-            errorText: ''
+            errorText: '',
+            user:'',
+            pw:'',
         };
     }
 
-    componentDidMount()
-    {
-      this.getData();
-    }
+    // componentDidMount()
+    // {
+    //   this.getData();
+    // }
   
     async getData() {
-      let username = "kmohankumar@gmail.com";
-      let pass = "test123";
-      let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+      let user = "kmohankumar@gmail.com";
+      let pw = "test123";
+      
       var stringForKey = user + pw + "keY";
       let key = base64.encode(md5.str_md5(stringForKey));
       
@@ -42,7 +43,7 @@ export default class Login extends Component {
       console.log("key3", key3);
   
       let body = {
-        tag: "login",
+        //tag: "login",
         user: user,
         pw:pw,
         key: key3,
@@ -50,7 +51,7 @@ export default class Login extends Component {
       };
   
       let formData = new FormData();
-      formData.append("tag", "login");
+      //formData.append("tag", "login");
       formData.append("user", user);
       formData.append("pw", pw);
       formData.append("key", key);
@@ -66,6 +67,7 @@ export default class Login extends Component {
   
       const content =  response.json();
       console.log("response", content);
+      return content;
     }
 
 
@@ -90,13 +92,13 @@ export default class Login extends Component {
                         <Text style={{ color: '#7CEC9F', fontSize: 20 }}> Login </Text>
                         <Item>
                             <Icon active name='email' type= 'material communityIcons' style={{color: '#687373'}} />
-                            <Input placeholder='Email' onChangeText={(text) => this.setState({ email: text })} placeholderTextColor="#687373" />
+                            <Input placeholder='Email' onChangeText={(text) => this.setState({ user: text })} placeholderTextColor="#687373" />
                         </Item>
 
 
                         <Item>
                             <Icon  name='lock' type='entypo' style={{ color: "#687373" }} />
-                            <Input placeholder='Password' onChangeText={(text) => this.setState({ password: text })} secureTextEntry={true} placeholderTextColor="#687373" />
+                            <Input placeholder='Password' onChangeText={(text) => this.setState({ pw: text })} secureTextEntry={true} placeholderTextColor="#687373" />
                         </Item>
 
 
@@ -123,8 +125,12 @@ export default class Login extends Component {
           Username: this.state.username
           Password: this.state.password
         */
+       let response = this.getData();
+       console.log(response);
       
-        this.setState({ hasError: true, errorText: 'Invalid email or password !' });
+     
+
+        //this.setState({ hasError: true, errorText: 'Invalid email or password !' });
     }
 
 
