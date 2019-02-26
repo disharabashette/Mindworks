@@ -11,8 +11,8 @@ export default class Modules extends Component {
       <View style={styles.container}>
         <View style={{ alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap' }} >
           <Button
-            //onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
-            onPress={() => Actions.start()}
+           onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
+            //onPress={() => Actions.start()}
             title="Meditation"
             backgroundColor="#aaa"
             buttonStyle={{

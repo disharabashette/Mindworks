@@ -37,7 +37,7 @@ export default class Main extends Component {
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
        
-            <Scene   key="home" component={Home} hideNavBar />
+            <Scene  initial key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
            
@@ -45,6 +45,7 @@ export default class Main extends Component {
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
             <Scene  key="modules" component={Modules} hideNavBar />
+            <Scene  key="sideMenu" component={SideMenu} hideNavBar />
             <Scene  key="start" component={Start} hideNavBar />
             <Scene key="art" component={Art} hideNavBar />
             <Scene key="begin" component={Art_Begin} hideNavBar />
@@ -52,7 +53,6 @@ export default class Main extends Component {
             <Scene key="progress" component={Progress} hideNavBar />
             <Scene  key="login" component={Login} hideNavBar />
             <Scene   key="register" component={Register} hideNavBar />
-            <Scene initial key="sideMenu" component={SideMenu} hideNavBar />
 
             <Scene key="effect" component={Effect} hideNavBar />
 
