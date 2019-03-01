@@ -125,12 +125,13 @@ export default class Login extends Component {
           Username: this.state.username
           Password: this.state.password
         */
+       this.setState({ hasError: true, errorText: 'Invalid email or password !' });
        let response = this.getData();
        console.log(response);
-      
+       //Actions.meditation();
      
 
-        //this.setState({ hasError: true, errorText: 'Invalid email or password !' });
+       // this.setState({ hasError: true, errorText: 'Invalid email or password !' });
     }
 
 

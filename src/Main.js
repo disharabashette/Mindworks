@@ -12,6 +12,7 @@ import BMI from './page/BMI';
 import Results from './page/Results';
 import Modules from './page/Modules';
 import Start from './page/Meditation/Start';
+import Meditation from './page/Meditation/Meditation';
 import Effect from './page/Meditation/Effect';
 import Login from './page/Meditation/Login';
 import Register from './page/Meditation/Register';
@@ -37,7 +38,7 @@ export default class Main extends Component {
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
        
-            <Scene  initial key="home" component={Home} hideNavBar />
+            <Scene initial  key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
            
@@ -46,7 +47,9 @@ export default class Main extends Component {
             <Scene key="results" component={Results} hideNavBar />
             <Scene  key="modules" component={Modules} hideNavBar />
             <Scene  key="sideMenu" component={SideMenu} hideNavBar />
+
             <Scene  key="start" component={Start} hideNavBar />
+            <Scene  key="meditation" component={Meditation} hideNavBar />
             <Scene key="art" component={Art} hideNavBar />
             <Scene key="begin" component={Art_Begin} hideNavBar />
             <Scene key="express" component={Express} hideNavBar />
@@ -55,6 +58,7 @@ export default class Main extends Component {
             <Scene   key="register" component={Register} hideNavBar />
 
             <Scene key="effect" component={Effect} hideNavBar />
+            
 
           </Scene>
         </Router>

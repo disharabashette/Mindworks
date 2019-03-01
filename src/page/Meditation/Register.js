@@ -3,7 +3,9 @@ import { ScrollView ,Image,StyleSheet} from 'react-native';
 import { Container, View, Left, Right, Button, Item, Input ,Text} from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import {Icon} from 'react-native-elements';
-
+import moment from 'moment';
+import md5 from "react-native-md5";
+import base64 from "base-64";
 
 export default class Register extends Component {
   constructor(props) {
@@ -22,15 +24,15 @@ export default class Register extends Component {
 
       };
   }
-  componentDidMount()
-  {
-    this.getData();
-  }
+  // componentDidMount()
+  // {
+  //   this.getData();
+  // }
 
   async getData() {
     
-    let localts = moment().format("YYYY-MM-DD HH:mm:ss");
-    var stringForKey = name + localts + "keY";
+   let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+    var stringForKey = name +localts+ "keY";
     let key = base64.encode(md5.str_md5(stringForKey));
     
 
@@ -69,13 +71,14 @@ export default class Register extends Component {
     console.log("body", body);
     console.log("form", formData);
 
-    let response = await fetch("http://www.awakenm.com/mwapi/corp/actio.php", {
+    let response = await fetch("http://www.awakenm.com/mwapi/corp/action.php", {
       method: "POST",
       body: formData
     });
 
     const content =  response.json();
     console.log("response", content);
+    return content;
   }
 
 
@@ -135,30 +138,36 @@ export default class Register extends Component {
   }
 
   signup() {
-    if(this.state.email===""||this.state.name===""||this.state.username===""||this.state.password===""||this.state.rePassword==="") {
-      this.setState({hasError: true, errorText: 'Please fill all fields !'});
-      return;
-    }
-    if(!this.verifyEmail(this.state.email)) {
-      this.setState({hasError: true, errorText: 'Please enter a valid email address !'});
-      return;
-    }
-    if(this.state.username.length < 3) {
-      this.setState({hasError: true, errorText: 'Passwords must contains at least 3 characters !'});
-      return;
-    }
-    if(this.state.password.length < 6) {
-      this.setState({hasError: true, errorText: 'Passwords must contains at least 6 characters !'});
-      return;
-    }
+   
+    // if(this.state.email===""||this.state.name===""||this.state.username===""||this.state.password==="") {
+    //   this.setState({hasError: true, errorText: 'Please fill all fields !'});
+    //   return;
+    // }
+    // if(!this.verifyEmail(this.state.email)) {
+    //   this.setState({hasError: true, errorText: 'Please enter a valid email address !'});
+    //   return;
+    // }
+    // if(this.state.username.length < 3) {
+    //   this.setState({hasError: true, errorText: 'Passwords must contains at least 3 characters !'});
+    //   return;
+    // }
+    // if(this.state.password.length < 6) {
+    //   this.setState({hasError: true, errorText: 'Passwords must contains at least 6 characters !'});
+    //   return;
+    // }
+  
+   
     
-    this.setState({hasError: false});
-    Actions.home();
+    // this.setState({hasError: false});
+    //Actions.home();
+    let response = this.getData();
+       console.log("response",response);
   }
 
   verifyEmail(email) {
     var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return reg.test(email);
+  
   }
 
 
