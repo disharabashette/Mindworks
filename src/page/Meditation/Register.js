@@ -24,20 +24,20 @@ export default class Register extends Component {
 
       };
   }
-  // componentDidMount()
-  // {
-  //   this.getData();
-  // }
+  componentDidMount()
+  {
+    this.getData();
+  }
 
   async getData() {
     
-   let localts = moment().format("YYYY-MM-DD HH:mm:ss");
-    var stringForKey = name +localts+ "keY";
-    let key = base64.encode(md5.str_md5(stringForKey));
+   //let localts = moment().format("YYYY-MM-DD HH:mm:ss");
+   // var stringForKey = name +localts+ "keY";
+    //let key = base64.encode(md5.str_md5(stringForKey));
     
 
-    var key3 = encodeURIComponent(key);
-    console.log("key3", key3);
+   // var key3 = encodeURIComponent(key);
+   // console.log("key3", key3);
 
     let body = {
       tag: "register",
@@ -51,7 +51,7 @@ export default class Register extends Component {
       amount:"0",
       coupon :"",
       source :"web-breatheasy",
-      key: key3,
+      //key: key3,
       
     };
 
@@ -66,7 +66,7 @@ export default class Register extends Component {
     formData.append("amount", "0");
     formData.append("coupon", "");
     formData.append("source", "web-breatheasy");
-    formData.append("key", key);
+   // formData.append("key", key);
 
     console.log("body", body);
     console.log("form", formData);
@@ -143,10 +143,10 @@ export default class Register extends Component {
     //   this.setState({hasError: true, errorText: 'Please fill all fields !'});
     //   return;
     // }
-    // if(!this.verifyEmail(this.state.email)) {
-    //   this.setState({hasError: true, errorText: 'Please enter a valid email address !'});
-    //   return;
-    // }
+    if(!this.verifyEmail(this.state.email)) {
+      this.setState({hasError: true, errorText: 'Please enter a valid email address !'});
+      return;
+    }
     // if(this.state.username.length < 3) {
     //   this.setState({hasError: true, errorText: 'Passwords must contains at least 3 characters !'});
     //   return;

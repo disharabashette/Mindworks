@@ -7,7 +7,7 @@ import { Scene, Router, Drawer, Actions } from 'react-native-router-flux';
 
 import Home from './page/Home';
 import Questions from './page/Questions';
-
+import Test from './page/Test';
 import BMI from './page/BMI';
 import Results from './page/Results';
 import Modules from './page/Modules';
@@ -38,7 +38,7 @@ export default class Main extends Component {
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
        
-            <Scene initial  key="home" component={Home} hideNavBar />
+            <Scene   key="home" component={Home} hideNavBar />
             <Scene    key="bmi" component={BMI} hideNavBar />
             
            
@@ -54,9 +54,9 @@ export default class Main extends Component {
             <Scene key="begin" component={Art_Begin} hideNavBar />
             <Scene key="express" component={Express} hideNavBar />
             <Scene key="progress" component={Progress} hideNavBar />
-            <Scene  key="login" component={Login} hideNavBar />
+            <Scene initial key="login" component={Login} hideNavBar />
             <Scene   key="register" component={Register} hideNavBar />
-
+            <Scene   key="test" component={Test} hideNavBar />
             <Scene key="effect" component={Effect} hideNavBar />
             
 

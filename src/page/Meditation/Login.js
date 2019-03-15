@@ -32,9 +32,10 @@ export default class Login extends Component {
     // }
   
     async getData() {
-      let user = "kmohankumar@gmail.com";
-      let pw = "test123";
-      
+      //let user = "kmohankumar@gmail.com";
+     // let pw = "test123";
+      let user=this.user;
+      let pw=this.pw;
       var stringForKey = user + pw + "keY";
       let key = base64.encode(md5.str_md5(stringForKey));
       
@@ -172,3 +173,5 @@ const styles = StyleSheet.create({
     },
 });
 
+// sapna@awakenm.com
+// sapna54321
