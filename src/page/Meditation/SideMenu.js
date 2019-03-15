@@ -84,10 +84,7 @@ export default class SideMenu extends React.Component {
                 title="Increase 10%"
                 onPress={this.increase.bind(this, 'progressCustomized', 10)}
               />
-                <Button
-                title="Increase 10%"
-                onPress={this.increase.bind(this, 'progressCustomized', 10)}
-              />
+              
             </View>
           </View>
         </View>
