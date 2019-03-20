@@ -17,7 +17,7 @@ const rightButtonConfig = {
 };
 const leftButtonConfig = {
   icon: 'menu', color: '#fff',
-  onPress: () => Actions.art()
+  onPress: () => Actions.sideMenu()
 };
 
 
