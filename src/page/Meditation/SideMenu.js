@@ -5,9 +5,9 @@
 // React native and others libraries imports
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet,Text,LayoutAnimation, UIManager, Linking } from 'react-native';
-import { View, List, ListItem, Body, Left, Right, Item, Input, Button, Grid, Col } from 'native-base';
+import { View, List, ListItem, Body, Left, Right, Item, Input, Grid, Col } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import {Icon} from 'react-native-elements';
+import {Icon ,Button,} from 'react-native-elements';
 // Our custom files and classes import
 // import SideMenuSecondLevel from './SideMenuSecondLevel';
 // import Text from './Text';
@@ -38,6 +38,24 @@ export default class SideMenu extends Component {
     if(!this.state.subMenu) {
       return(
         <View>
+          <Text> login</Text>
+          <Button></Button>
+          <Button
+      onPress={() => Actions.questions()}
+      title = {<Text style={styles.subtitle}> Start </Text> }
+     
+      buttonStyle={{
+        backgroundColor: "white",
+        width: 100,
+        height: 40,
+        borderColor: "transparent",
+        borderWidth: 2,
+        borderRadius: 30,
+        borderColor: '#92bbff',
+      }}
+      backgroundColor= "#aaa"
+     
+    />
 <Button title={<Text style={styles.textStyle}> Login </Text>}
               onPress={() => Actions.login()}
               buttonStyle={{
@@ -74,6 +92,12 @@ const styles = StyleSheet.create({
   textStyle: {
 
     fontSize: 12,
+    textAlign: 'center',
+    margin: 10,
+    color: 'black',
+  },
+  subtitle: {
+    fontSize: 14,
     textAlign: 'center',
     margin: 10,
     color: 'black',
