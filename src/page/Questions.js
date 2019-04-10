@@ -438,7 +438,7 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
    // justifyContent: 'center',
     backgroundColor: '#fafad2',
-    marginLeft: 10,
+    //marginLeft: 5,
     marginRight: 10,
     color: '#0B0A0A',
   }

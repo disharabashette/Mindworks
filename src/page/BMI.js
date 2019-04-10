@@ -224,6 +224,7 @@ class BMI extends Component {
 </Text>
 <Text>
 
+
   
 </Text>
       </View>

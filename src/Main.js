@@ -11,6 +11,7 @@ import Test from './page/Test';
 import BMI from './page/BMI';
 import Results from './page/Results';
 import Modules from './page/Modules';
+import WebPage from './page/WebPage';
 import Start from './page/Meditation/Start';
 import Meditation from './page/Meditation/Meditation';
 import Effect from './page/Meditation/Effect';
@@ -45,10 +46,11 @@ export default class Main extends Component {
             <Scene    key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
-            <Scene  key="modules" component={Modules} hideNavBar />
+            <Scene initial key="modules" component={Modules} hideNavBar />
+            <Scene  key="webpage" component={WebPage} hideNavBar />
             <Scene   key="sideMenu" component={SideMenu} hideNavBar />
 
-            <Scene initial key="start" component={Start} hideNavBar />
+            <Scene  key="start" component={Start} hideNavBar />
             <Scene  key="meditation" component={Meditation} hideNavBar />
             <Scene key="art" component={Art} hideNavBar />
             <Scene key="begin" component={Art_Begin} hideNavBar />
