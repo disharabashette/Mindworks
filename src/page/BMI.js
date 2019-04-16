@@ -4,7 +4,7 @@ import CardStack, { Card } from 'react-native-card-stack-swiper';
 import { StyleSheet, Text, View, TextInput,Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
-import { Button } from 'react-native-elements';
+import { Button ,Header} from 'react-native-elements';
 import { Fumi } from 'react-native-textinput-effects';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment';
@@ -99,27 +99,25 @@ class BMI extends Component {
 
   render() {
     return (
+<View backgroundColor='white'>
+<Header backgroundColor='#45CE30'
+
+centerComponent={{ text: 'Bmi Profile Assessment', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+/>
 
       <View
-        style={styles.rootContainer}
-        onStartShouldSetResponder={this.containerTouched.bind(this)}
+        // style={styles.rootContainer}
+        // onStartShouldSetResponder={this.containerTouched.bind(this)}
         
       >
-      
-      
-        <Text style={styles.title}>
-          BmiCalculator
-        </Text>
-        <Image
-                            style={styles.img}
-                            source={{ uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1550226778/bmi.png' }}
-                        />
-        <Card style={[styles.card, styles.card]}>
+  
+        
          
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
-            Age:
+             Age:
           </Text>
+    
           <TextInput
             style={styles.textInput}
             keyboardType="numeric"
@@ -130,10 +128,10 @@ class BMI extends Component {
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
-            Sex:
+             Sex:
           </Text>
 
-        </View>
+       
 
         <RadioForm
           radio_props={Sex}
@@ -143,10 +141,10 @@ class BMI extends Component {
           
         />
 
-
+ </View>
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
-            Height:
+             Height:
           </Text>
           <TextInput
             style={styles.textInput}
@@ -159,7 +157,7 @@ class BMI extends Component {
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>
-            Weight:
+             Weight:
           </Text>
           <TextInput
             style={styles.textInput}
@@ -194,7 +192,7 @@ class BMI extends Component {
           {this.state.result}
         </Text>
         
-         </Card>
+        
        
 
       <Button
@@ -228,6 +226,8 @@ class BMI extends Component {
   
 </Text>
       </View>
+
+      </View>
     );
   }
 }
@@ -236,13 +236,15 @@ var styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     paddingTop: 40,
+    marginLeft :10,
     alignItems: 'center',
     backgroundColor: '#fafad2',
   },
   inputContainer: {
-    flexDirection: 'row',
+    //flexDirection: 'row',
     justifyContent: 'center',
     paddingTop: 20,
+    marginLeft: 10,
   },
   title: {
     fontSize: 30,
@@ -252,6 +254,7 @@ var styles = StyleSheet.create({
   },
   textLabel: {
     fontSize: 20,
+    margin:5,
   },
   textResult: {
     paddingTop: 20,

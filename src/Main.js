@@ -40,13 +40,13 @@ export default class Main extends Component {
           <Scene key="root" >
        
             <Scene   key="home" component={Home} hideNavBar />
-            <Scene    key="bmi" component={BMI} hideNavBar />
+            <Scene  initial  key="bmi" component={BMI} hideNavBar />
             
            
             <Scene    key="questions" component={Questions} hideNavBar />
            <Scene  key="displayquestions" component={DisplayQuestions} hideNavBar/>
             <Scene key="results" component={Results} hideNavBar />
-            <Scene initial key="modules" component={Modules} hideNavBar />
+            <Scene  key="modules" component={Modules} hideNavBar />
             <Scene  key="webpage" component={WebPage} hideNavBar />
             <Scene   key="sideMenu" component={SideMenu} hideNavBar />
 

@@ -6,7 +6,42 @@ import {Button} from 'react-native-elements';
 const Home = () => {
   return (
     <View style={styles.container}>
-    <Text style={styles.title}>Beyond the Pills </Text>
+
+    <Text style={styles.title}> The Wellness Circle </Text>
+    <Image
+          style={{width: 100, height: 100,borderRadius: 100}}
+          source={{uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543387363/ShardaJain.jpg'}}
+        />
+<Text style={styles.subtitle}> Dr. Sharda Jain</Text>
+<Text style={styles.subsubtitle}>( Chief Coach ) </Text>
+<Text style={styles.subsubtitle}> Diagnostic Insights to enable 360 degrees care </Text>
+
+
+<Button
+      onPress={() => Actions.questions()}
+      title = {<Text style={styles.subtitle}> Start </Text> }
+     
+      buttonStyle={{
+        margin: 10,
+        backgroundColor: "#F3B63A",
+        width: 200,
+        height: 40,
+        borderColor: "transparent",
+        borderWidth: 2,
+        borderRadius: 30,
+      //  borderColor: '#92bbff',
+      }}
+      backgroundColor= "#aaa"
+     
+    />
+    <Text style={styles.subsubtitle}> Powered by
+    <Image
+         style={{width: 100, height: 100,borderRadius: 100}}
+          source={{uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg'}}
+        /> 
+        
+        </Text>
+    {/* <Text style={styles.title}>Beyond the Pills </Text>
    
       <Text style={styles.welcome}> 360 DEGREE DIAGNOSTICS AND CARE SYSTEM </Text>
       <Text style={styles.welcome}> NUTRITION | ACTIVITY |  MEDITATION </Text>
@@ -42,7 +77,7 @@ const Home = () => {
     <Image
           style={styles.img}
           source={{uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg'}}
-        />
+        /> */}
     </View>
   );
 }
@@ -52,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
   },
   welcome: {
     fontSize: 20,
@@ -70,7 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: 'center',
     margin: 10,
-    color: 'black',
+    color: '#636261',
   },
   
 
@@ -78,7 +113,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign: 'center',
     margin: 10,
-    color: '#ffa500',
+    color: 'black',
   },
   img: {
    
