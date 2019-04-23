@@ -39,8 +39,8 @@ export default class Main extends Component {
         <Router sceneStyle={{ backgroundColor: '#fafad2' }} >
           <Scene key="root" >
        
-            <Scene   key="home" component={Home} hideNavBar />
-            <Scene  initial  key="bmi" component={BMI} hideNavBar />
+            <Scene  initial key="home" component={Home} hideNavBar />
+            <Scene    key="bmi" component={BMI} hideNavBar />
             
            
             <Scene    key="questions" component={Questions} hideNavBar />

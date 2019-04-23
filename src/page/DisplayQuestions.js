@@ -34,7 +34,7 @@ class DisplayQuestions extends Component {
         style={{
           height: 1,
           width: "86%",
-          backgroundColor: "#CED0CE",
+          backgroundColor: "white",
           alignItems: 'center',
           justifyContent: 'center',
         }}
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
     marginLeft: 10,
     marginRight: 10,
   },
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
 
 
   },
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
   },
   label1: {
 
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   label: {
 
-    textAlign: 'center',
+    //textAlign: 'center',
     fontSize: 14,
     fontFamily: 'System',
     color: '#0B0A0A',

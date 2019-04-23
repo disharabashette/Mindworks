@@ -4,7 +4,7 @@ import CardStack, { Card } from 'react-native-card-stack-swiper';
 import { StyleSheet, Text, View, TextInput,Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
-import { Button ,Header} from 'react-native-elements';
+import { Button ,Header,Icon} from 'react-native-elements';
 import { Fumi } from 'react-native-textinput-effects';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment';
@@ -101,7 +101,9 @@ class BMI extends Component {
     return (
 <View backgroundColor='white'>
 <Header backgroundColor='#45CE30'
+leftComponent={{ icon: 'dashboard', color: '#fff' }}
 
+rightComponent={{ icon: 'edit', color: '#fff' }}
 centerComponent={{ text: 'Bmi Profile Assessment', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
 />
 

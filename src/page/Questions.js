@@ -343,12 +343,13 @@ export default class Questions extends Component {
       <View style={{ flex: 1 }}>
         <Header backgroundColor='#45CE30'
 
-          centerComponent={{ text: 'Awaken Mindfulness', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+          centerComponent={{ text: 'Stress Profile Assessment ', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+          rightComponent={{ icon: 'edit', color: '#fff' }}
         />
 
         <View style={styles.container1}>
 
-          <Title style={styles.welcome}>Mental Health Assessment</Title>
+          {/* <Title style={styles.welcome}>Mental Health Assessment</Title> */}
           {/* <Progress.Bar progress={.33} width={300}
           /> */}
           <Text style={styles.label1}>
@@ -395,6 +396,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'white',
   },
   bar: {
     flex: 5,
@@ -437,7 +439,7 @@ const styles = StyleSheet.create({
   scroll: {
     //alignItems: 'center',
    // justifyContent: 'center',
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
     //marginLeft: 5,
     marginRight: 10,
     color: '#0B0A0A',

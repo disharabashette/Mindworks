@@ -2,13 +2,21 @@
 import React, { Component } from 'react';
 
 import { StyleSheet, Text, Linking,View, Image, ImageBackground } from 'react-native';
-import { Button } from 'react-native-elements'
+import { Button ,Header} from 'react-native-elements'
 import { Actions } from 'react-native-router-flux';
 export default class Modules extends Component {
   render() {
     return (
-     
-      <View style={styles.container}>
+     <View Style={{ flex:1, backgroundColor:'white'}}> 
+      
+      <Header backgroundColor='#45CE30'
+leftComponent={{ icon: 'home', color: '#fff' }}
+
+
+centerComponent={{ text: 'The Wellness Circle', style: { color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+/>
+<View Style={{  backgroundColor:'white'}} >
+      <Text> Diagnostic Insights to enable 360 degress care </Text>
         <View style={{ alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap' }} >
           <Button
            //onPress={() => Linking.openURL('http://web2.awakenm.com.s3-website-us-west-2.amazonaws.com/#!/login')}
@@ -100,14 +108,14 @@ export default class Modules extends Component {
           />
         </View>
       </View>
-
+      </View>
 
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fafad2',
+    backgroundColor: 'white',
     flex: 1,
     alignContent: 'center',
     justifyContent: 'center'

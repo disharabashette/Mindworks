@@ -34,13 +34,17 @@ const Home = () => {
       backgroundColor= "#aaa"
      
     />
+    <View style={styles.container1}>  
     <Text style={styles.subsubtitle}> Powered by
-    <Image
-         style={{width: 100, height: 100,borderRadius: 100}}
-          source={{uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg'}}
-        /> 
+   
         
         </Text>
+
+         <Image
+         style={{width: 50, height: 50,borderRadius: 10}}
+          source={{uri: 'https://res.cloudinary.com/devurubyh/image/upload/v1543386664/logo.jpg'}}
+        /> 
+        </View>
     {/* <Text style={styles.title}>Beyond the Pills </Text>
    
       <Text style={styles.welcome}> 360 DEGREE DIAGNOSTICS AND CARE SYSTEM </Text>
@@ -85,6 +89,13 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  container1: {
+    
+    flexDirection:'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
